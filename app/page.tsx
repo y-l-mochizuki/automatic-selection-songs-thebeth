@@ -30,6 +30,9 @@ export const generateMetadata = async (
       title,
       card: "summary_large_image",
       description: "test",
+      images: [
+        `https://automatic-selection-songs-thebeth.vercel.app/api/ogp?title=${title}`,
+      ],
     },
   };
 };
