@@ -1,24 +1,21 @@
 import { loadGoogleFont } from "@/utils";
-import { ImageResponse } from "@vercel/og";
+import { ImageResponse } from "next/og";
 
-/** ImageResponse対応 */
+// Route segment config
 export const runtime = "edge";
-/** 有効期間 */
-export const revalidate = 10;
 
-/** 13.3.0現在ここを動的にはできない */
-export const alt = "記事のアイキャッチ画像";
+// Image metadata
+export const alt = "About Acme";
 export const size = {
   width: 1200,
   height: 630,
 };
+
 export const contentType = "image/png";
 
-type Props = {
-  params: { id: string };
-};
-
-export default async function og({ params: { id } }: Props) {
+// Image generation
+export default async function Image() {
+  // Font
   const notoSansArrayBuffer = await loadGoogleFont({
     family: "Noto Sans JP",
     weight: 700,
@@ -26,9 +23,10 @@ export default async function og({ params: { id } }: Props) {
 
   return new ImageResponse(
     (
+      // ImageResponse JSX element
       <div
         style={{
-          fontSize: 64,
+          fontSize: 128,
           background: "white",
           width: "100%",
           height: "100%",
@@ -37,17 +35,20 @@ export default async function og({ params: { id } }: Props) {
           justifyContent: "center",
         }}
       >
-        TEST
+        About Acme
       </div>
     ),
+    // ImageResponse options
     {
+      // For convenience, we can re-use the exported opengraph-image
+      // size config to also set the ImageResponse's width and height.
       ...size,
       fonts: [
         {
-          name: "NotoSansJP",
+          name: "Inter",
           data: notoSansArrayBuffer,
           style: "normal",
-          weight: 700,
+          weight: 400,
         },
       ],
     },

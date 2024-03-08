@@ -9,30 +9,30 @@ type Props = {
   searchParams: { [key: string]: string | string[] | undefined };
 };
 // https://nextjs.org/docs/app/api-reference/file-conventions/metadata/opengraph-image
-export const generateMetadata = async (
-  { params, searchParams }: Props,
-  parent: ResolvingMetadata,
-) => {
-  const title = searchParams?.title;
+// export const generateMetadata = async (
+//   { params, searchParams }: Props,
+//   parent: ResolvingMetadata,
+// ) => {
+//   const title = searchParams?.title;
 
-  return {
-    title,
-    description: "test",
-    openGraph: {
-      title,
-      description: "Test",
-      // url: `https://automatic-selection-songs-thebeth.vercel.app/?title=${title}`,
-      // images: [
-      //   `https://automatic-selection-songs-thebeth.vercel.app/api/ogp?title=${title}`,
-      // ],
-    },
-    twitter: {
-      title,
-      card: "summary_large_image",
-      description: "test",
-      // images: [
-      //   `https://automatic-selection-songs-thebeth.vercel.app/api/ogp?title=${title}`,
-      // ],
-    },
-  };
-};
+//   return {
+//     title,
+//     description: "test",
+//     openGraph: {
+//       title,
+//       description: "Test",
+//       // url: `https://automatic-selection-songs-thebeth.vercel.app/?title=${title}`,
+//       // images: [
+//       //   `https://automatic-selection-songs-thebeth.vercel.app/api/ogp?title=${title}`,
+//       // ],
+//     },
+//     twitter: {
+//       card: "summary_large_image",
+//       // title,
+//       // description: "test",
+//       // images: [
+//       //   `https://automatic-selection-songs-thebeth.vercel.app/api/ogp?title=${title}`,
+//       // ],
+//     },
+//   };
+// };
