@@ -25,6 +25,7 @@ export const generateMetadata = async (
       // images: [
       //   `https://automatic-selection-songs-thebeth.vercel.app/api/ogp?title=${title}`,
       // ],
+      images: [`/opengraph-image`],
     },
     twitter: {
       card: "summary_large_image",
@@ -34,6 +35,7 @@ export const generateMetadata = async (
       // images: [
       //   `https://automatic-selection-songs-thebeth.vercel.app/api/ogp?title=${title}`,
       // ],
+      images: [`/twitter-image`],
     },
   };
 };
