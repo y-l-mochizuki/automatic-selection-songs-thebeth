@@ -29,8 +29,8 @@ export const generateMetadata = async (
     twitter: {
       card: "summary_large_image",
       site: "@mczk9402",
-      // title,
-      // description: "test",
+      title,
+      description: "test",
       images: [
         `https://automatic-selection-songs-thebeth.vercel.app/twitter-image`,
       ],
