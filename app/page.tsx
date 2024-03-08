@@ -22,14 +22,18 @@ export const generateMetadata = async (
       siteName: "test",
       type: "website",
       url: `/?title=${title}`,
-      images: [`/api/ogp?title=${title}`],
+      images: [
+        `https://automatic-selection-songs-thebeth.vercel.app/opengraoh-image`,
+      ],
     },
     twitter: {
       card: "summary_large_image",
       site: "@mczk9402",
       // title,
       // description: "test",
-      images: [`/api/ogp?title=${title}`],
+      images: [
+        `https://automatic-selection-songs-thebeth.vercel.app/twitter-image`,
+      ],
     },
   };
 };
