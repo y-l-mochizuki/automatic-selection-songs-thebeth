@@ -16,9 +16,10 @@ export const generateMetadata = async (
   const title = searchParams?.title;
 
   return {
-    title,
+    title: "TEST",
     description: "test",
     openGraph: {
+      title: "TEST",
       siteName: "test",
       type: "website",
       url: `https://automatic-selection-songs-thebeth.vercel.app/`,
@@ -29,7 +30,7 @@ export const generateMetadata = async (
     twitter: {
       card: "summary_large_image",
       site: "@mczk9402",
-      title,
+      title: "TEST",
       description: "test",
       images: [
         `https://automatic-selection-songs-thebeth.vercel.app/twitter-image`,
