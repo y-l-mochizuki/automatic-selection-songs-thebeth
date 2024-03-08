@@ -21,9 +21,9 @@ export const generateMetadata = async (
     openGraph: {
       siteName: "test",
       type: "website",
-      url: `/?title=${title}`,
+      url: `https://automatic-selection-songs-thebeth.vercel.app/`,
       images: [
-        `https://automatic-selection-songs-thebeth.vercel.app/opengraoh-image`,
+        `https://automatic-selection-songs-thebeth.vercel.app/opengraph-image`,
       ],
     },
     twitter: {
