@@ -21,21 +21,15 @@ export const generateMetadata = async (
     openGraph: {
       siteName: "test",
       type: "website",
-      url: `https://automatic-selection-songs-thebeth.vercel.app/?title=${title}`,
-      // images: [
-      //   `https://automatic-selection-songs-thebeth.vercel.app/api/ogp?title=${title}`,
-      // ],
-      images: [`/opengraph-image`],
+      url: `/?title=${title}`,
+      images: [`/api/ogp?title=${title}`],
     },
     twitter: {
       card: "summary_large_image",
       site: "@mczk9402",
       // title,
       // description: "test",
-      // images: [
-      //   `https://automatic-selection-songs-thebeth.vercel.app/api/ogp?title=${title}`,
-      // ],
-      images: [`/twitter-image`],
+      images: [`/api/ogp?title=${title}`],
     },
   };
 };
