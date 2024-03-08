@@ -8,7 +8,7 @@ type Props = {
   params: { id: string };
   searchParams: { [key: string]: string | string[] | undefined };
 };
-
+// https://nextjs.org/docs/app/api-reference/file-conventions/metadata/opengraph-image
 export const generateMetadata = async (
   { params, searchParams }: Props,
   parent: ResolvingMetadata,
@@ -21,18 +21,18 @@ export const generateMetadata = async (
     openGraph: {
       title,
       description: "Test",
-      url: `https://automatic-selection-songs-thebeth.vercel.app/?title=${title}`,
-      images: [
-        `https://automatic-selection-songs-thebeth.vercel.app/api/ogp?title=${title}`,
-      ],
+      // url: `https://automatic-selection-songs-thebeth.vercel.app/?title=${title}`,
+      // images: [
+      //   `https://automatic-selection-songs-thebeth.vercel.app/api/ogp?title=${title}`,
+      // ],
     },
     twitter: {
       title,
       card: "summary_large_image",
       description: "test",
-      images: [
-        `https://automatic-selection-songs-thebeth.vercel.app/api/ogp?title=${title}`,
-      ],
+      // images: [
+      //   `https://automatic-selection-songs-thebeth.vercel.app/api/ogp?title=${title}`,
+      // ],
     },
   };
 };
