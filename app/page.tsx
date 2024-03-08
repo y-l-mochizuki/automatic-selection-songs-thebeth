@@ -22,9 +22,9 @@ export const generateMetadata = async (
       siteName: "test",
       type: "website",
       url: `https://automatic-selection-songs-thebeth.vercel.app/?title=${title}`,
-      images: [
-        `https://automatic-selection-songs-thebeth.vercel.app/api/ogp?title=${title}`,
-      ],
+      // images: [
+      //   `https://automatic-selection-songs-thebeth.vercel.app/api/ogp?title=${title}`,
+      // ],
     },
     twitter: {
       card: "summary_large_image",
