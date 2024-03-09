@@ -7,7 +7,7 @@ type Base = {
   title: string;
 };
 
-type Music = Base;
+export type Music = Base;
 
 export type Album = Base & {
   musics: Music[];

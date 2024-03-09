@@ -1,4 +1,4 @@
-import { Album } from "@/types";
+import { type Album } from "@/types";
 import { client } from "@/utils/microcms";
 import { ResolvingMetadata } from "next";
 import { Home } from "@/components/Home";

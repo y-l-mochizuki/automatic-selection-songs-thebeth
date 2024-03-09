@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Album, Music } from "@/types";
+import { type Album, type Music } from "@/types";
 import {
   Button,
   Checkbox,
