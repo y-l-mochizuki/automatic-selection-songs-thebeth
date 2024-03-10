@@ -29,7 +29,9 @@ export const generateMetadata = async ({ searchParams }: Props) => {
       title: "TEST",
       siteName: "test",
       type: "website",
-      images: [`http://localhost:3000/api/ogp?title=${encStr}`],
+      images: [
+        `https://automatic-selection-songs-thebeth.vercel.app/api/ogp?title=${encStr}`,
+      ],
     },
     twitter: {
       card: "summary_large_image",
