@@ -1,10 +1,9 @@
 "use client";
 
 import React from "react";
-import { type Album, type Music } from "@/types";
+import { useRouter } from "next/navigation";
 import {
   Button,
-  Checkbox,
   Table,
   TableHeader,
   TableColumn,
@@ -12,11 +11,6 @@ import {
   TableRow,
   TableCell,
   Selection,
-  Accordion,
-  AccordionItem,
-  Card,
-  CardBody,
-  CardHeader,
   Modal,
   useDisclosure,
   ModalContent,
@@ -24,6 +18,7 @@ import {
   ModalBody,
   ModalFooter,
 } from "@nextui-org/react";
+import { type Album, type Music } from "@/types";
 
 type Props = {
   albums: Album[];
@@ -34,8 +29,8 @@ export const Home = ({ albums }: Props) => {
     new Set(albums.map((album) => album.id)),
   );
 
+  const router = useRouter();
   const [selectedMusics, setSelectedMusics] = React.useState<Music[]>([]);
-
   const handleClick = () => {
     const selectedAlbums = albums.filter((v) =>
       [...selectedKeys].includes(v.id),
@@ -43,7 +38,7 @@ export const Home = ({ albums }: Props) => {
 
     const musics = selectedAlbums.map((v) => v.musics.map((v2) => v2)).flat();
 
-    const pickRandomSongs = ({
+    const pickRandomMusics = ({
       musics,
       count,
     }: {
@@ -54,17 +49,33 @@ export const Home = ({ albums }: Props) => {
       return shuffled.slice(0, count);
     };
 
-    const count = 5;
-    const randomMusics = pickRandomSongs({
+    const count = 3;
+    const randomMusics = pickRandomMusics({
       musics,
       count,
     });
 
     onOpen();
     setSelectedMusics(randomMusics);
+
+    const queryString = randomMusics
+      .map((v, i) => `${i + 1}位 ${v.title}`)
+      .join("\n");
+    const encStr = encodeURIComponent(queryString);
+    const url = `/?title=${encStr}`;
+    router.push(url);
   };
 
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
+
+  const onPostButtonClick = () => {
+    // TODO: 完了次第解除する
+    // window.location.href = `https://twitter.com/intent/post?url=${
+    //   location.href
+    // }&text=今日のTHE+BETHMUSIC占い&hashtags=THE+BETH,${selectedMusics
+    //   .map((v) => v.title)
+    //   .join(",")}`;
+  };
 
   return (
     <>
@@ -116,7 +127,7 @@ export const Home = ({ albums }: Props) => {
           onClick={handleClick}
         >
           <span className="font-bold" onClick={handleClick}>
-            ランダムで5曲を選ぶ
+            今日のTHE+BETH MUSICを占う
           </span>
         </Button>
       </div>
@@ -133,17 +144,23 @@ export const Home = ({ albums }: Props) => {
         <ModalContent>
           {(onClose) => (
             <>
-              <ModalHeader>5 MUSICS</ModalHeader>
+              <ModalHeader>今日のTHE+BETH MUSIC</ModalHeader>
               <ModalBody>
                 <div className="grid gap-2">
-                  {/* <span>#THE+BETH</span> */}
-                  {selectedMusics.map((v) => (
-                    <span key={v.id}>#{v.title}</span>
+                  {selectedMusics.map((v, i) => (
+                    <div key={i}>{`${i + 1}位 ${v.title}`}</div>
                   ))}
                 </div>
               </ModalBody>
               <ModalFooter>
-                <Button color="primary" onPress={onClose} fullWidth>
+                <Button
+                  color="primary"
+                  onPress={() => {
+                    onPostButtonClick();
+                    onClose();
+                  }}
+                  fullWidth
+                >
                   <span className="font-bold">結果をポストする</span>
                 </Button>
               </ModalFooter>

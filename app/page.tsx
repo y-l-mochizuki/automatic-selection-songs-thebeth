@@ -1,6 +1,5 @@
 import { type Album } from "@/types";
 import { client } from "@/utils/microcms";
-import { ResolvingMetadata } from "next";
 import { Home } from "@/components/Home";
 
 export default async function Page() {
@@ -12,16 +11,17 @@ export default async function Page() {
 }
 
 type Props = {
-  params: { id: string };
   searchParams: { [key: string]: string | string[] | undefined };
 };
-// https://nextjs.org/docs/app/api-reference/file-conventions/metadata/opengraph-image
-export const generateMetadata = async (
-  { params, searchParams }: Props,
-  parent: ResolvingMetadata,
-) => {
-  const title = searchParams?.title;
 
+// https://nextjs.org/docs/app/api-reference/file-conventions/metadata/opengraph-image
+export const generateMetadata = async ({ searchParams }: Props) => {
+  const title = searchParams?.title;
+  if (!title) {
+    return;
+  }
+
+  const encStr = encodeURIComponent(title.toString());
   return {
     title: "TEST",
     description: "test",
@@ -29,7 +29,7 @@ export const generateMetadata = async (
       title: "TEST",
       siteName: "test",
       type: "website",
-      images: [`http://localhost:3000/api/ogp?${title}`],
+      images: [`http://localhost:3000/api/ogp?title=${encStr}`],
     },
     twitter: {
       card: "summary_large_image",

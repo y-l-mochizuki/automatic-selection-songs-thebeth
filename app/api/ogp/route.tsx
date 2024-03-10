@@ -19,18 +19,17 @@ export async function GET(req: NextRequest) {
     (
       <div
         style={{
-          fontSize: 40,
-          color: "black",
-          background: "white",
+          fontSize: 60,
+          color: "#232323",
+          background: "#ffc81e",
           width: "100%",
           height: "100%",
-          padding: "50px 200px",
-          textAlign: "center",
           justifyContent: "center",
           alignItems: "center",
+          whiteSpace: "pre-wrap",
         }}
       >
-        {title}
+        {`今日のTHE+BETH MUSIC占い\n` + title}
       </div>
     ),
     {
