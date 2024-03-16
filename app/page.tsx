@@ -23,11 +23,9 @@ export const generateMetadata = async ({ searchParams }: Props) => {
 
   const encStr = encodeURIComponent(title.toString());
   return {
-    title: "TEST",
-    description: "test",
     openGraph: {
-      title: "TEST",
-      siteName: "test",
+      title: "selection-songs-the+beth",
+      siteName: "selection-songs-the+beth",
       type: "website",
       images: [
         `https://automatic-selection-songs-thebeth.vercel.app/api/ogp?title=${encStr}`,

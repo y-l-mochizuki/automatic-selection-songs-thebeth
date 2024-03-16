@@ -10,6 +10,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" className="dark">
+      <head>
+        <title>selection-songs-the+beth</title>
+        <meta name="description" content="selection-songs-the+beth" />
+        <meta name="robots" content="noindex" />
+      </head>
       <body className={inter.className}>{children}</body>
     </html>
   );

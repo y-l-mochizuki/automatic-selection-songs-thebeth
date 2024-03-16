@@ -69,12 +69,13 @@ export const Home = ({ albums }: Props) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   const onPostButtonClick = () => {
-    // TODO: 完了次第解除する
-    // window.location.href = `https://twitter.com/intent/post?url=${
-    //   location.href
-    // }&text=今日のTHE+BETHMUSIC占い&hashtags=THE+BETH,${selectedMusics
+    const url = location.href;
+    const encStr = encodeURIComponent(url);
+    window.location.href = `https://twitter.com/intent/post?url=${encStr}&text=今日のTHE+BETHMUSIC占い\n`;
+    // hashタグは一旦外しておく
+    // window.location.href = `https://twitter.com/intent/post?url=${encStr}&text=今日のTHE+BETHMUSIC占い\n&hashtags=THE+BETH,${selectedMusics
     //   .map((v) => v.title)
-    //   .join(",")}`;
+    //   .join(",")}\n`;
   };
 
   return (
