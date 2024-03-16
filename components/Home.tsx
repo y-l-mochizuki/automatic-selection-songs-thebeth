@@ -71,9 +71,9 @@ export const Home = ({ albums }: Props) => {
   const onPostButtonClick = () => {
     const url = location.href;
     const encStr = encodeURIComponent(url);
-    window.location.href = `https://twitter.com/intent/post?url=${encStr}&text=今日のTHE+BETHMUSIC占い\n`;
+    window.location.href = `https://twitter.com/intent/tweet?url=${encStr}&text=今日のTHE+BETHMUSIC占い\n`;
     // hashタグは一旦外しておく
-    // window.location.href = `https://twitter.com/intent/post?url=${encStr}&text=今日のTHE+BETHMUSIC占い\n&hashtags=THE+BETH,${selectedMusics
+    // window.location.href = `https://twitter.com/intent/tweet?url=${encStr}&text=今日のTHE+BETHMUSIC占い\n&hashtags=THE+BETH,${selectedMusics
     //   .map((v) => v.title)
     //   .join(",")}\n`;
   };
